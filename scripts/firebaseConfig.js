@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-lite.js";
+import { getFirestore, collection, getDocs, query, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBHt34RYLvKmd8EYOyiW2kpZVdFZOFvOUc",
@@ -27,3 +27,5 @@ export async function getCoordinates() {
     return [];
   }
 }
+
+export { onSnapshot, collection, query };
