@@ -28,4 +28,17 @@ export async function getCoordinates() {
   }
 }
 
+export async function addCoordinate(latitude, longitude) {
+  try {
+    const docRef = await addDoc(collection(db, "coordinates"), {
+      latitude,
+      longitude,
+      timestamp: new Date().toISOString(), // Timestamp para saber quando os dados foram enviados
+    });
+    console.log("Documento adicionado com ID:", docRef.id);
+  } catch (error) {
+    console.error("Erro ao adicionar coordenada ao Firestore:", error);
+  }
+}
+
 export { onSnapshot, collection, query };

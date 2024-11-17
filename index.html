@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rastreamento em Tempo Real</title>
+    <link rel="shortcut icon" href="asset/img/place.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-lite.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rastreamento em Tempo Real</title>
-  <link rel="shortcut icon" href="asset/img/place.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script> -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-lite.js"></script> -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-</head>
+  <body>
+    <!-- <div id="data-container"></div> -->
+    <section class="map-container">
+      <div id="map"></div>
+    </section>
 
-<body>
-  <!-- <div id="data-container"></div> -->
-  <section class="map-container">
-    <div id="map"></div>
-  </section>
+    <section class="content-container">
+      <header>
+        <h1>Localização em tempo real</h1>
+      </header>
 
-  <section class="content-container">
-    <header>
-      <h1>Localização em tempo real</h1>
-    </header>
-  
-    <main></main>
-  
-    <footer>
-      <h4>Desenvolvido por Tecoffee.</h4>
-    </footer>
-  </section>
+      <main></main>
 
+      <footer>
+        <h4>Desenvolvido por Tecoffee.</h4>
+      </footer>
+    </section>
 
-  <script type="module" src="scripts/firebaseConfig.js"></script>
-  <script type="module" src="scripts/getLocalization.js"></script>
-  <!-- <script type="module" src="scripts/testDataBase.js"></script> -->
-</body>
-
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        connectToSerial();
+      });
+    </script>
+    <script type="module" src="scripts/firebaseConfig.js"></script>
+    <script type="module" src="scripts/getLocalization.js"></script>
+    <!-- <script type="module" src="scripts/testDataBase.js"></script> -->
+  </body>
 </html>
