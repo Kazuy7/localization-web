@@ -16,25 +16,30 @@ async function updateMapWithCoordinates(map) {
 
   if (data.length > 0) {
     const { lat, lgt } = data[0];
-    const initialLatitude = parseFloat(lat);
-    const initialLongitude = parseFloat(lgt);
+    const latitude = parseFloat(lat);
+    const longitude = parseFloat(lgt);
 
-    map.setView([initialLatitude, initialLongitude], 13);
+    // Captura o nível de zoom atual
+    const currentZoom = map.getZoom();
 
-    // Remove existing markers if needed
+    // Atualiza a posição do mapa sem alterar o zoom
+    map.setView([latitude, longitude], currentZoom);
+
+    // Remove o marcador existente, se necessário
     if (map.marker) {
       map.removeLayer(map.marker);
     }
 
     // Adiciona um novo marcador
-    map.marker = L.marker([initialLatitude, initialLongitude])
+    map.marker = L.marker([latitude, longitude])
       .addTo(map)
-      .bindPopup(`Latitude: ${initialLatitude}, Longitude: ${initialLongitude}`)
+      .bindPopup(`Latitude: ${latitude}, Longitude: ${longitude}`)
       .openPopup();
   } else {
     console.error("Nenhuma coordenada encontrada no banco de dados.");
   }
 }
+
 
 async function fetchDataAndDisplayOnMap() {
   const initialData = await getCoordinates();
